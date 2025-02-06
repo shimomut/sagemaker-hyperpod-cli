@@ -21,3 +21,6 @@ __pycache__/
 # Ignore all contents of result and results directories
 /result/
 /results/
+
+/helm_chart/HyperPodHelmChart/Chart.lock
+/helm_chart/HyperPodHelmChart/charts/*.tgz
