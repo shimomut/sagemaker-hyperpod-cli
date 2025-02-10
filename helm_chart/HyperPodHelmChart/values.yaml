@@ -120,7 +120,6 @@ trainingOperators:
 training-operators:
   image:
     repository: 842413447717.dkr.ecr.us-east-1.amazonaws.com/training-operator
-    tag: "v1-855e096"
 
 storage:
   enabled: false
@@ -143,8 +142,6 @@ nvidia-device-plugin:
   # For closed-network
   image:
     repository: 842413447717.dkr.ecr.us-east-1.amazonaws.com/nvidia/k8s-device-plugin
-    pullPolicy: IfNotPresent
-    tag: v0.16.1
 
   affinity:
     nodeAffinity:
@@ -176,7 +173,6 @@ aws-efa-k8s-device-plugin:
   # For closed-network
   image:
     repository: 842413447717.dkr.ecr.us-east-1.amazonaws.com/eks/aws-efa-k8s-device-plugin
-    tag: "v0.5.3"
 
   supportedInstanceLabels:
     values:
@@ -222,40 +218,8 @@ mpi-operator:
 
   # For closed-network
   mpiOperator:
-    additionalArgs:
-    - -alsologtostderr
-    # Increase default logging, default is very terse
-    - -stderrthreshold=INFO
-    - -v=4
     image:
       repository: 842413447717.dkr.ecr.us-east-1.amazonaws.com/mpi-operator
-      tag: "0.5"
-    replicas: 1
-    serviceAccount:
-      annotations: {}
-
-    ## Node labels for pod assignment
-    ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
-    nodeSelector: {}
-
-    ## Affinity settings for pod assignment
-    ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-    affinity: {}
-
-    ## Tolerations for pod assignment
-    ## Ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-    tolerations:
-    - key: sagemaker.amazonaws.com/node-health-status
-      operator: "Equal"
-      value: "Unschedulable"
-      effect: "NoSchedule"
-
-    ## Topology spread constraints for pod assignment
-    ## Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/
-    topologySpreadConstraints: []
-
-    ## Image Pull Policy for operator deployment
-    imagePullPolicy: IfNotPresent
 
 health-monitoring-agent:
   enabled: true
