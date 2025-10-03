@@ -200,6 +200,9 @@ nvidia-device-plugin:
       value: Unschedulable
       effect: NoSchedule
 
+  # ECR override for air-gapped environment
+  image:
+    repository: 842413447717.dkr.ecr.us-east-2.amazonaws.com/nvidia-k8s-device-plugin
 neuron-device-plugin:
   devicePlugin:
     enabled: true
@@ -274,12 +277,21 @@ aws-efa-k8s-device-plugin:
       value: "Unschedulable"
       effect: "NoSchedule"
 
+  # ECR override for air-gapped environment
+  image:
+    repository: 842413447717.dkr.ecr.us-east-2.amazonaws.com/eks/aws-efa-k8s-device-plugin
 mpi-operator:
   enabled: true
+  # ECR override for air-gapped environment
+  mpiOperator:
+    image:
+      repository: 842413447717.dkr.ecr.us-east-2.amazonaws.com/mpi-operator
 health-monitoring-agent:
   enabled: true
   # AWS region will be automatically detected or can be specified
   # region: "us-east-1"
+  # ECR override for air-gapped environment
+  hmaimage: "842413447717.dkr.ecr.us-east-2.amazonaws.com/hyperpod-health-monitoring-agent:1.0.819.0_1.0.267.0"
 deep-health-check:
   enabled: true
 job-auto-restart:
