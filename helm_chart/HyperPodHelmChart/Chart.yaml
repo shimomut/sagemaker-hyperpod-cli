@@ -31,7 +31,7 @@ dependencies:
   - name: training-operators
     version: "0.1.0"
     repository: "file://charts/training-operators"
-    condition: trainingOperators.enabled
+    condition: training-operators.enabled
   - name: mlflow
     version: "0.1.0"
     repository: "file://charts/mlflow"

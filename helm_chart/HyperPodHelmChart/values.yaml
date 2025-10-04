@@ -127,8 +127,12 @@ cert-manager:
 mlflow:
   enabled: false
 
-trainingOperators:
+training-operators:
   enabled: true
+
+  # ECR override for air-gapped environment
+  image:
+    repository: 842413447717.dkr.ecr.us-east-2.amazonaws.com/kubeflow-training-operator
 
 inferenceOperators:
   enabled: false
